@@ -1,6 +1,6 @@
 import { useCookies } from "react-cookie";
 import React, { useState } from "react";
-import { Link, navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ export default function Login() {
             },
             body: JSON.stringify({
                 email,
-                password,
+                password
             }),
         })
             .then(response => response.json())
@@ -36,6 +36,7 @@ export default function Login() {
                     alert("Error Password or Username");
                 } else {
                     // Faça algo com os dados se o login for bem-sucedido
+
                     setCookie('spirit.token', data, {
                         path: '/',
                         maxAge: 60 * 60
