@@ -57,15 +57,12 @@ export default function Home() {
     dadosSpirits.map((item: SpiritData, index) => {
       if (index == PositionNotationEdit) {
         setDataEdit(item)
-
-
       }
     })
   }
 
 
   if (data) {
-
     useEffect(() => {
       fetch(`http://localhost:3000/notation/${data.user.userId}`, {
         method: 'GET',

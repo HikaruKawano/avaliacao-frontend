@@ -63,7 +63,6 @@ export default function ModalSpirit({ onDataC, isOpenEdit, isCloseEdit, dataNota
 
 
   useEffect(() => {
-
     if (dataNotation) {
       console.log(dataNotation)
       setBrand(dataNotation.spirit.brand);
@@ -95,7 +94,7 @@ export default function ModalSpirit({ onDataC, isOpenEdit, isCloseEdit, dataNota
 
           if (responseSpirit.ok) {
 
-            console.log(dataB.spiritId)
+            const spiritId = dataB.spiritId
 
             await fetch('http://localhost:3000/notation/', {
               method: 'POST',
@@ -109,7 +108,7 @@ export default function ModalSpirit({ onDataC, isOpenEdit, isCloseEdit, dataNota
                 notation: parseInt(notation as string),
               })
             }).then(response => response.json)
-              .then(data => {
+              .then(() => {
                 setBrand('');
                 setType('');
                 setNote('');
